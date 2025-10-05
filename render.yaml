@@ -3,8 +3,8 @@ services:
     name: space-station-safety-scanner
     env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.10.14
+        value: 3.9.18
