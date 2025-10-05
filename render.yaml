@@ -3,10 +3,6 @@ services:
     name: space-station-safety-scanner
     env: python
     plan: free
-    buildCommand: |
-      apt-get update && apt-get install -y python3.9 python3.9-venv python3.9-distutils
-      ln -sf /usr/bin/python3.9 /usr/bin/python
-      python -m ensurepip
-      pip install --upgrade pip setuptools wheel
-      pip install -r requirements.txt
+    pythonVersion: 3.11
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
     startCommand: gunicorn app:app
